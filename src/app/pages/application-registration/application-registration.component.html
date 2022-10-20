@@ -1,3 +1,16 @@
 <div class="registration">
   <h2>New application</h2>
+  <form [formGroup]="applicationForm">
+    <mat-form-field appearance="fill">
+      <mat-label>VIN</mat-label>
+      <mat-select formControlName="vin">
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let vin of vinList|async" [value]="vin">
+          {{vin}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="applicationForm.get('vin')?.errors?.['required']">Please choose an VIN</mat-error>
+    </mat-form-field>
+  </form>
+
 </div>
