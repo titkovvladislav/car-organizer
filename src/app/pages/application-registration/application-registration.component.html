@@ -11,6 +11,17 @@
       </mat-select>
       <mat-error *ngIf="applicationForm.get('vin')?.errors?.['required']">Please choose an VIN</mat-error>
     </mat-form-field>
-  </form>
 
+    <mat-form-field appearance="fill">
+      <mat-label>Full Name</mat-label>
+      <input matInput type="text" formControlName="fullName">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Telephone</mat-label>
+      <input type="tel" matInput placeholder="+7 (000)-000-00-00"  formControlName="phone" appPhoneMask>
+    </mat-form-field>
+
+
+  </form>
 </div>

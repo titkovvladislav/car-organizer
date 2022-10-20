@@ -12,8 +12,8 @@ export class ApplicationRegistrationComponent implements OnInit {
 
   applicationForm = this.fb.group({
     vin: ['', [Validators.required]],
-    fullName: [],
-    phone: [],
+    fullName: [''],
+    phone: [''],
     address: [],
     date: []
   })
@@ -25,5 +25,6 @@ export class ApplicationRegistrationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.applicationForm.valueChanges.subscribe(console.log)
   }
 }

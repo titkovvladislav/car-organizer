@@ -10,13 +10,16 @@ import { MatTabsModule } from "@angular/material/tabs";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from "@angular/material/select";
 import { ReactiveFormsModule } from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
+import { MatInputModule } from "@angular/material/input";
+import { PhoneMaskDirective } from "./shared/directives/phone-mask.directive";
 
 @NgModule({
   declarations: [
     AppComponent,
     ClientRecordsComponent,
-    ApplicationRegistrationComponent
+    ApplicationRegistrationComponent,
+    PhoneMaskDirective
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import {HttpClientModule} from "@angular/common/http";
     HttpClientModule,
     MatTabsModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
