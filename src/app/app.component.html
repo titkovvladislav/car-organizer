@@ -1,5 +1,6 @@
-<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+<nav mat-tab-nav-bar mat-align-tabs="center" [tabPanel]="tabPanel">
   <a mat-tab-link *ngFor="let link of links"
+     class="tabs"
      (click)="activeLink = link.title"
      [routerLink]="link.path"
      [active]="activeLink == link.title"> {{link.title}} </a>

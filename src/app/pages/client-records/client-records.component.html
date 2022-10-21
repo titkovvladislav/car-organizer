@@ -1,1 +1,23 @@
-<p>client-records works!</p>
+<div class="records">
+  <h2>Client records</h2>
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date and time </th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} {{element.time}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="vin">
+      <th mat-header-cell *matHeaderCellDef> VIN </th>
+      <td mat-cell *matCellDef="let element"> {{element.vin}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="client">
+      <th mat-header-cell *matHeaderCellDef> Full name <br> Telephone<br> Delivery address </th>
+      <td mat-cell *matCellDef="let element"> {{element.fullName}} <br> {{element.phone}} <br> {{element.address}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

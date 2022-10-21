@@ -1,3 +1,74 @@
 .registration {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 20px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .date-time {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .form-field {
+      width: 45%;
+    }
+  }
+
+  .form-field,
+  .date-time {
+    width: 40%;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 200px;
+    line-height: 3rem;
+  }
 }
+
+@media screen and (max-width: 900px) {
+  .registration {
+    .date-time {
+      .form-field {
+        width: 60%;
+      }
+    }
+
+    .form-field,
+    .date-time,
+    button {
+      width: 90%;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .registration {
+    .form-field,
+    .date-time,
+    button {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .registration {
+    .date-time {
+      .form-field {
+        width: 45%;
+      }
+    }
+  }
+}
+
+
+
+

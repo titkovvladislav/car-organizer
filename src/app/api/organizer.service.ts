@@ -9,7 +9,11 @@ export class OrganizerService {
 
   constructor(private http: HttpClient) { }
 
-  getVin(): Observable<any> {
-    return this.http.get('https://dev.dealon.pro/frontendTest/Car/');
+  getVin(): Observable<Array<string>> {
+    return this.http.get<Array<string>>('https://dev.dealon.pro/frontendTest/Car/');
+  }
+
+  getTime(date: string): Observable<Array<string>> {
+    return this.http.get<Array<string>>(`https://dev.dealon.pro/frontendTest/Time/${date}`);
   }
 }
