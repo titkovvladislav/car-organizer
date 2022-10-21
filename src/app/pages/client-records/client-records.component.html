@@ -1,6 +1,6 @@
-<div class="records">
+<div class="records" *ngIf="(dataSource | async) as data">
   <h2>Client records</h2>
-  <table mat-table [dataSource]="dataSource">
+  <table mat-table [dataSource]="data">
 
     <ng-container matColumnDef="date">
       <th mat-header-cell *matHeaderCellDef> Date and time </th>

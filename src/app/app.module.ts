@@ -17,6 +17,9 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatButtonModule } from "@angular/material/button";
 import { MatTableModule } from "@angular/material/table";
+import { StoreModule } from '@ngrx/store';
+import {applicationsReducer} from "./store/applications.reducer";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 
 @NgModule({
   declarations: [
@@ -38,7 +41,12 @@ import { MatTableModule } from "@angular/material/table";
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    StoreModule.forRoot({application: applicationsReducer}, {}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 15,
+      autoPause: true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

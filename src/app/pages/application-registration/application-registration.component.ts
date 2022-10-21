@@ -3,6 +3,8 @@ import { FormBuilder, Validators } from "@angular/forms";
 import { OrganizerService } from "../../api/organizer.service";
 import { filter, map, Observable, Subject, switchMap, takeUntil } from "rxjs";
 import { formatDate } from "@angular/common";
+import { Store } from "@ngrx/store";
+import { addApplication } from "../../store/applications.actions";
 
 @Component({
   selector: 'app-application-registration',
@@ -13,11 +15,11 @@ export class ApplicationRegistrationComponent implements OnInit, OnDestroy {
 
   applicationForm = this.fb.group({
     vin: ['', [Validators.required]],
-    fullName: [''],
-    phone: [''],
-    address: [],
-    date: [],
-    time: []
+    fullName: ['',[Validators.required]],
+    phone: ['',[Validators.required]],
+    address: ['',[Validators.required]],
+    date: ['',[Validators.required]],
+    time: ['',[Validators.required]]
   })
 
   vinList$!: Observable<Array<string>>;
@@ -26,14 +28,13 @@ export class ApplicationRegistrationComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    public apiService: OrganizerService
+    public apiService: OrganizerService,
+    private store: Store
   ) {
     this.vinList$ = apiService.getVin();
   }
 
   ngOnInit(): void {
-    this.applicationForm.valueChanges.subscribe(console.log)
-
     this.applicationForm.controls.date.valueChanges
       .pipe(
         filter(Boolean),
@@ -50,7 +51,8 @@ export class ApplicationRegistrationComponent implements OnInit, OnDestroy {
   }
 
   save(): void {
-    console.log(this.applicationForm.value.date)
+    this.store.dispatch(addApplication({ application: this.applicationForm.value}));
+    this.applicationForm.reset();
   }
 
 }
