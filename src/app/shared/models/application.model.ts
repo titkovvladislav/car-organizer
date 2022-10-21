@@ -1,8 +1,8 @@
 export interface ApplicationI {
-  date?: string | null;
-  time?: string | null;
-  vin?: string | null;
-  fullName?: string | null;
-  phone?: string | null;
-  address?: string | null;
+  date: string;
+  time: string;
+  vin: string;
+  fullName: string;
+  phone: string;
+  address: string;
 }

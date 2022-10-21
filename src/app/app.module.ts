@@ -18,8 +18,8 @@ import { MatNativeDateModule } from "@angular/material/core";
 import { MatButtonModule } from "@angular/material/button";
 import { MatTableModule } from "@angular/material/table";
 import { StoreModule } from '@ngrx/store';
-import {applicationsReducer} from "./store/applications.reducer";
-import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import { applicationsReducer } from "./store/applications.reducer";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 
 @NgModule({
   declarations: [

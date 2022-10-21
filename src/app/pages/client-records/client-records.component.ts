@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Store } from "@ngrx/store";
-import { selectApplications } from "../../store/application.selectors";
+import { ApplicationFacade } from "../../store/application.facade";
+import { Observable } from "rxjs";
+import { ApplicationI } from "../../shared/models/application.model";
 
 @Component({
   selector: 'app-client-records',
@@ -9,9 +10,7 @@ import { selectApplications } from "../../store/application.selectors";
 })
 export class ClientRecordsComponent {
   readonly displayedColumns: string[] = ['date', 'vin', 'client'];
-  readonly dataSource = this.store.select(selectApplications);
+  readonly dataSource$: Observable<readonly ApplicationI[]> = this.facade.applications$;
 
-  constructor(private store: Store) { }
-
-
+  constructor(private facade: ApplicationFacade) { }
 }

@@ -3,8 +3,8 @@ import { FormBuilder, Validators } from "@angular/forms";
 import { OrganizerService } from "../../api/organizer.service";
 import { filter, map, Observable, Subject, switchMap, takeUntil } from "rxjs";
 import { formatDate } from "@angular/common";
-import { Store } from "@ngrx/store";
-import { addApplication } from "../../store/applications.actions";
+import { ApplicationFacade } from "../../store/application.facade";
+import {ApplicationI} from "../../shared/models/application.model";
 
 @Component({
   selector: 'app-application-registration',
@@ -29,7 +29,7 @@ export class ApplicationRegistrationComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     public apiService: OrganizerService,
-    private store: Store
+    private facade: ApplicationFacade
   ) {
     this.vinList$ = apiService.getVin();
   }
@@ -51,7 +51,7 @@ export class ApplicationRegistrationComponent implements OnInit, OnDestroy {
   }
 
   save(): void {
-    this.store.dispatch(addApplication({ application: this.applicationForm.value}));
+    this.facade.addApplication(this.applicationForm.value as ApplicationI);
     this.applicationForm.reset();
   }
 

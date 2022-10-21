@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  vinUrl: 'https://dev.dealon.pro/frontendTest/Car/',
+  timeUrl: 'https://dev.dealon.pro/frontendTest/Time/'
 };
 
 /*
